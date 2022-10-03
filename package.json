@@ -1,0 +1,30 @@
+{
+  "name": "twitter-crypto-prices-bot",
+  "version": "1.0.0",
+  "description": "simple twitter bot for posting crypto prices",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doychinivanov/twitter-crypto-prices-bot.git"
+  },
+  "author": "Doychin Ivanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doychinivanov/twitter-crypto-prices-bot/issues"
+  },
+  "homepage": "https://github.com/doychinivanov/twitter-crypto-prices-bot#readme",
+  "dependencies": {
+    "cron": "^2.1.0",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.2.10",
+    "twitter-api-v2": "^1.12.7"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
