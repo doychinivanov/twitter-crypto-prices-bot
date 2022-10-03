@@ -1,9 +1,9 @@
 import readWriteClient from './config/twitterClient.js'
-// const CronJoB = require('cron').CronJob
+import cb from 'cron'
 import fetchPrices from './services/cryptoService.js'
 import { tweetParser } from './utils/parser.js'
 
-const testTweet = async () => {
+const tweetCryptoInfo = async () => {
     try {
         const response = await fetchPrices()
         const data = await response.json()
@@ -13,7 +13,13 @@ const testTweet = async () => {
     }
 }
 
-testTweet()
-// const job = new CronJoB('* * * * *', () => testTweet())
+const morningJob = new cb.CronJob('34 00 * * *', () => tweetCryptoInfo())
+const noonJob = new cb.CronJob('0 13 * * *', () => tweetCryptoInfo())
+const afternoonJob = new cb.CronJob('0 18 * * *', () => tweetCryptoInfo())
+const eavningJob = new cb.CronJob('0 22 * * *', () => tweetCryptoInfo())
 
-// job.start()
+morningJob.start()
+noonJob.start()
+afternoonJob.start()
+eavningJob.start()
+ 
