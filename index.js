@@ -13,7 +13,7 @@ const tweetCryptoInfo = async () => {
     }
 }
 
-const morningJob = new cb.CronJob('34 00 * * *', () => tweetCryptoInfo())
+const morningJob = new cb.CronJob('0 9 * * *', () => tweetCryptoInfo())
 const noonJob = new cb.CronJob('0 13 * * *', () => tweetCryptoInfo())
 const afternoonJob = new cb.CronJob('0 18 * * *', () => tweetCryptoInfo())
 const eavningJob = new cb.CronJob('0 22 * * *', () => tweetCryptoInfo())
