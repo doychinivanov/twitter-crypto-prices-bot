@@ -18,5 +18,6 @@ const tweetCryptoInfo = async (): Promise<void> => {
 
 const cron: CronJob = new cb.CronJob('0 */2 * * *', () => tweetCryptoInfo())
 
+console.log("App started.")
 cron.start()
  

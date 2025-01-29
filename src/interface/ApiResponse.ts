@@ -2,7 +2,7 @@ export interface ApiResponse {
     bitcoin: {
         usd: number
     },
-    cardano: {
+    solana: {
         usd: number
     },
     ethereum: {
