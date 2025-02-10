@@ -12,7 +12,7 @@ export const tweetCryptoInfo = async (): Promise<void> => {
         const data: ApiResponse = await response.json() as ApiResponse;
         await readWriteClient.v2.tweet(tweetParser(data));
     } catch (err) {
-        console.error(err)
+        console.error(err);
     }
 };
 
