@@ -1,23 +1,21 @@
-import { Response } from 'node-fetch'
-import readWriteClient from './config/twitterClient'
-import cb, { CronJob } from 'cron'
-import fetchPrices from './services/cryptoService'
-import { tweetParser } from './utils/parser'
-import { ApiResponse } from './interface/ApiResponse'
+import type { Response } from 'node-fetch';
+import type { CronJob } from 'cron';
+import type { ApiResponse } from './interface/ApiResponse';
+import readWriteClient from './config/twitterClient';
+import cb from 'cron';
+import fetchPrices from './services/cryptoService';
+import { tweetParser } from './utils/parser';
 
-const tweetCryptoInfo = async (): Promise<void> => {
+export const tweetCryptoInfo = async (): Promise<void> => {
     try {
-        const response: Response = await fetchPrices()
-        const data: ApiResponse = await response.json() as ApiResponse
-        await readWriteClient.v2.tweet(tweetParser(data))
-        console.log('done')
+        const response: Response = await fetchPrices();
+        const data: ApiResponse = await response.json() as ApiResponse;
+        await readWriteClient.v2.tweet(tweetParser(data));
     } catch (err) {
-        console.error(err)
+        console.error(err);
     }
-}
+};
 
-const cron: CronJob = new cb.CronJob('0 */2 * * *', () => tweetCryptoInfo())
-
-console.log("App started.")
-cron.start()
+export const cron: CronJob = new cb.CronJob('0 */2 * * *', () => tweetCryptoInfo());
+cron.start();
  

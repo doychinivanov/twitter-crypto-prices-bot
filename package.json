@@ -4,10 +4,12 @@
   "description": "simple twitter bot for posting crypto prices",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest --coverage",
     "start": "tsc -p . && node dist/index.js",
     "dev": "nodemon src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "lint": "eslint \"**/*.{js,ts}\"",
+    "lint:fix": "eslint \"**/*.{js,ts}\" --fix"
   },
   "repository": {
     "type": "git",
@@ -26,11 +28,19 @@
     "twitter-api-v2": "^1.12.7"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@types/cron": "^2.0.0",
     "@types/node": "^18.8.1",
     "@types/node-fetch": "^2.6.2",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "@vitest/coverage-v8": "^3.0.5",
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "typescript-eslint": "^8.23.0",
+    "vitest": "^3.0.5"
   }
 }
