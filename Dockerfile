@@ -12,6 +12,14 @@ COPY vitest.config.ts .
 RUN npm install --only=development
 CMD ["npm", "test"]
 
+FROM base as lint
+ENV NODE_ENV=development
+COPY src ./src
+COPY eslint.config.mjs .
+COPY tsconfig.json .
+RUN npm install --only=development
+CMD ["npm", "run", "lint"]
+
 FROM base as production
 ENV NODE_ENV=production
 COPY src ./

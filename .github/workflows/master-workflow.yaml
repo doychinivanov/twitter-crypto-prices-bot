@@ -14,7 +14,20 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Build & Run Tests in Docker
+      - name: Run Unit Tests
         run: |
           docker build --target test -t my-app:test .
           docker run --rm my-app:test
+  
+  lint-check:
+    name: Lint Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Run Lint Checker
+        run: |
+          docker build --target test -t my-app:lint .
+          docker run --rm my-app:lint 
