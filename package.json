@@ -4,7 +4,7 @@
   "description": "simple twitter bot for posting crypto prices",
   "main": "index.js",
   "scripts": {
-    "test": "vitest --coverage",
+    "test": "vitest --coverage --run",
     "start": "tsc -p . && node dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "tsc -p .",
