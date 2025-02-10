@@ -29,5 +29,5 @@ jobs:
       
       - name: Run Lint Checker
         run: |
-          docker build --target test -t lint:test .
-          docker run --rm lint:test
+          docker build --target lint -t lint:check .
+          docker run --rm lint:check
